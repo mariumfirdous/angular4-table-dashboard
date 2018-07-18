@@ -32,9 +32,9 @@ export class DataPassService {
 
 
   confirmData(name:string,status:string,total:string){
-    name =this.data[this.updateIndex].Name;
-    status=this.data[this.updateIndex].status;
-    total=this.data[this.updateIndex].total;
+    this.data[this.updateIndex].Name = name
+    this.data[this.updateIndex].status = status
+    this.data[this.updateIndex].total = total
 
   }
 
