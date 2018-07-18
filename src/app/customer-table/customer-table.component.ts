@@ -1,3 +1,4 @@
+import { PopupTableComponent } from './../popup-table/popup-table.component';
 import { DataPassService } from './../data-pass.service';
 import { PopupComponent } from './../popup/popup.component';
 import { Component} from '@angular/core';
@@ -14,28 +15,38 @@ import { MatDialog,MatDialogConfig } from '@angular/material';
 
 export class CustomerTableComponent {
  
-  data = []
-  constructor(private dialog:MatDialog, private myService: DataPassService) { 
+  data: any = [];
+  constructor(private dialog:MatDialog, private myService: DataPassService, private dialogEdit:MatDialog) { 
 
     // Getting data from service onLoad
-    this.data = myService.getData()
+    this.data = myService.getData();
+    this.data = myService.getUpdatedData();
+    
   }
-
-  newIndex;
+  
+ 
   openDialog(index: number){
     console.log(index);
 
     const dialogConfig = new MatDialogConfig();
     this.dialog.open(PopupComponent, dialogConfig);
 
-    this.newIndex=index;
 
     // Sending index to service
-    this.myService.setDeleteIndex(index)
+    this.myService.setDeleteIndex(index);
+    
   }
 
-  confirmData(){
-    alert("not deleted");
-   
+  openEditDialog(index: number){
+    console.log(index);
+
+    const editDialogConfig = new MatDialogConfig();
+    this.dialogEdit.open(PopupTableComponent, editDialogConfig);
+
+  
+    // Sending index to service
+    this.myService.setupdatedIndex(index);
   }
+
+ 
 }

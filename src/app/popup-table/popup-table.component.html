@@ -1,3 +1,29 @@
-<p>
-  popup-table works!
-</p>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+  <table border="2">
+<h2 mat-dialog-title style="background-color:darkslategray; color:white">
+Edit
+</h2>
+
+<mat-dialog-content style="margin-left:20px ">
+  <form>
+    
+     Name: <input type='text' #name placeholder="name"/><br/>
+     Status: <input type='text' #status placeholder="status"  /><br/>
+     Total: <input type='text' #total placeholder="total" /><br/>
+  
+     
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button btn btn-danger"  (click)="update(name.value,status.value,total.value)">
+    ok
+
+  </button>
+  <button class="mat-raised-button btn btn-danger"  (click)="close()">
+    close
+  </button>
+</mat-dialog-actions>
+  </table>

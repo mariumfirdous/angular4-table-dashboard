@@ -1,13 +1,51 @@
-import { Injectable, Output, EventEmitter } from '@angular/core';
-import { CustomerTableComponent } from './customer-table/customer-table.component';
+import { Injectable} from '@angular/core';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataPassService {
 
-  public userConfirmation = false;
+  
   public deleteIndex = -1;
+  public updateIndex= -1;
+  constructor() { 
+   
+  }
+  
+  // Deleting value on confirm
+  confirm(){
+    this.data.splice(this.deleteIndex, 1);
+  }
+  
+ 
+  // Getting index from table and setting in 'deleteIndex'
+  setDeleteIndex(index) {
+    this.deleteIndex = index ;
+  }
+
+  // returing data from here to table
+  getData () {
+    return this.data;
+  }
+
+
+
+  confirmData(name:string,status:string,total:string){
+    name =this.data[this.updateIndex].Name;
+    status=this.data[this.updateIndex].status;
+    total=this.data[this.updateIndex].total;
+
+  }
+
+  setupdatedIndex(index){
+    this.updateIndex = index ;
+  }
+
+  getUpdatedData(){
+    return this.data;
+   
+  }
 
   data = [
     {"id":"123",
@@ -62,26 +100,5 @@ export class DataPassService {
   ];
   
   
-  constructor() { 
-    this.userConfirmation= false;
-  }
-  
-  // Deleting value on confirm
-  confirm(){
-    this.data.splice(this.deleteIndex, 1);
-  }
-  
-  getUserConfirmation(){
-    return this.userConfirmation;
-  }
-
-  // Getting index from table and setting in 'deleteIndex'
-  setDeleteIndex(index) {
-    this.deleteIndex = index 
-  }
-
-  // returing data from here to table
-  getData () {
-    return this.data;
-  }
+ 
 }

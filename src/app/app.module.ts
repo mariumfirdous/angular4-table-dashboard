@@ -52,6 +52,6 @@ const appRoutes: Routes = [
   ],
   providers: [DataPassService],
   bootstrap: [AppComponent],
-  entryComponents: [PopupComponent]
+  entryComponents: [PopupComponent, PopupTableComponent]
 })
 export class AppModule { }
