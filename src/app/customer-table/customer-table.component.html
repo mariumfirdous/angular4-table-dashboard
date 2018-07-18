@@ -1,0 +1,24 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<div>
+  <table class="table-striped table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>status</th>
+      <th>total</th>
+      <th>Details</th>
+    </tr>
+    <tr *ngFor="let i of data; let a= index">
+      <td>{{i.id}}</td>
+      <td>{{i.Name}}</td>
+      <td>{{i.status}}</td>
+      <td>{{i.total}}</td>
+      <td><button class="btn btn-sm" (click)="openDialog(a)"style="font-size:10px;float:center; background-color: lightcoral;">delete</button></td>
+      <td><button class="btn btn-sm" (click)="openDialog(a)"style="font-size:10px;float:center; background-color: lightcoral;">edit </button></td>
+  
+    </tr>
+
+  </table>
+</div>

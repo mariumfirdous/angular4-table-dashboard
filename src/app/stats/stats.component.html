@@ -1,0 +1,9 @@
+<div class="dashboard-heading">
+    {{title}}
+  </div>
+  <div class="dashboard-content" *ngFor="let i of stat">
+              <div class="other-stats-box">
+                <div class="other-stat-number">{{i.number}}</div>
+                <div class="other-stat-text">{{i.month}}</div>
+              </div>
+            </div>

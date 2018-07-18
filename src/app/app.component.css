@@ -1,0 +1,15 @@
+.table{
+    margin-left:"250px"; 
+}
+.container{
+    margin-left:250px;
+    
+    display:flex; 
+    flex-direction: row;
+     
+    flex-wrap:wrap;
+    
+}
+.container div{
+    margin: 10px;
+}

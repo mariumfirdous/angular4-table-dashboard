@@ -1,0 +1,38 @@
+.dashboard-heading {
+    background: #3E3E3E;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    font-size: 19px;
+  text-align: center;
+}
+.other-stats {
+    padding: 5px;
+}
+.dashboard-content {
+    border-left: 1px solid #CBCACA;
+    border-right: 1px solid #CBCACA;
+    border-bottom: 1px solid #CBCACA;
+    padding: 5px;
+    font-size: 13px;
+    width:280px;
+    background: #FFFFFF;
+  
+}
+
+.other-stats{
+	float:left;
+	width: 30%;
+	
+}
+
+
+.other-stat-number{
+	text-align: center;
+	color: #FA4444;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.other-stat-text{
+	text-align: center;
+}

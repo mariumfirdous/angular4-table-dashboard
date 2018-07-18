@@ -1,0 +1,24 @@
+body {
+    font-family: sans-serif;
+    color: whitesmoke;
+    margin-left:250px;
+  }
+  
+  .topnav {
+    background-color:darkslategrey;
+    height:50px;
+    padding-top:auto;
+    padding-bottom:auto;
+  }
+  
+  .topnav a {
+    color: #f2f2f2;
+    text-align: center;
+    padding: 10px;
+    font-size: 10px;
+  }
+  
+  #top a:hover {
+    background-color:lightcoral;
+    color: black;
+  }
