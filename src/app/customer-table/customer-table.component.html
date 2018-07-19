@@ -9,8 +9,8 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
-      <th>status</th>
-      <th>total</th>
+      <th>Status</th>
+      <th>Total</th>
       <th>Details</th>
     </tr>
     <tr *ngFor="let i of data| paginate: { itemsPerPage: 4, currentPage: p } | filter:term ; let i = index">
