@@ -32,9 +32,9 @@ export class DataPassService {
 
 
   confirmData(name:string,status:string,total:string){
-    name =this.data[this.updateIndex].Name;
-    status=this.data[this.updateIndex].status;
-    total=this.data[this.updateIndex].total;
+    this.data[this.updateIndex].Name=name;
+    this.data[this.updateIndex].status=status;
+    this.data[this.updateIndex].total=total;
 
   }
 
@@ -51,51 +51,37 @@ export class DataPassService {
     {"id":"123",
       "Name":"Racheal Green",
       "status":"completed",
-      "total":"$234",
-      "date":"24 apr 2017",
-      "orders": "5"
+      "total":"234"
     },
     {"id":"997",
       "Name":"Nolan",
       "status":"completed",
-      "total":"$333",
-      "date":"2 dec 2017",
-      "orders": "8"
+      "total":"333"
     },
     {"id":"776",
       "Name":"emilia clark",
       "status":"processed",
-      "total":"$830",
-      "date":"7 aug 2017",
-      "orders": "10"
+      "total":"830"
     },
     {"id":"043",
       "Name":"Nick Jonas",
       "status":"completed",
-      "total":"$231",
-      "date":"16 jun 2018",
-      "orders": "51"
+      "total":"231"
     },
     {"id":"963",
       "Name":"Ranjit Singh",
       "status":"processed",
-      "total":"$134",
-      "date":"4 oct 2017",
-      "orders": "62"
+      "total":"134"
     },
     {"id":"643",
       "Name":"miley cyrus",
       "status":"completed",
-      "total":"$543",
-      "date":"24 jan 2018",
-      "orders": "84"
+      "total":"543"
     },
     {"id":"492",
       "Name":"Alex",
       "status":"Processed",
-      "total":"$200",
-      "date":"24 apr 2018",
-      "orders": "25"
+      "total":"200"
     }
   ];
   

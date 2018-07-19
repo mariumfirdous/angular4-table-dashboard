@@ -1,3 +1,4 @@
+
 import { DataPassService } from './data-pass.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
@@ -8,6 +9,9 @@ import * as Charts from 'fusioncharts/fusioncharts.charts';
 import * as FintTheme from 'fusioncharts/themes/fusioncharts.theme.fint';
 import * as PowerCharts from 'fusioncharts/fusioncharts.powercharts';
 import {MatDialogModule} from "@angular/material";
+import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 import { AppComponent } from './app.component';
 import { TopnavigationComponent } from './topnavigation/topnavigation.component';
@@ -20,6 +24,7 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { StatsComponent } from './stats/stats.component';
 import { PopupComponent } from './popup/popup.component';
 import { PopupTableComponent } from './popup-table/popup-table.component';
+
 
 const appRoutes: Routes = [
   { path: '', component: TopnavigationComponent },
@@ -47,7 +52,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FusionChartsModule.forRoot(FusionCharts, Charts, FintTheme,PowerCharts),
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule,
+    
 
   ],
   providers: [DataPassService],

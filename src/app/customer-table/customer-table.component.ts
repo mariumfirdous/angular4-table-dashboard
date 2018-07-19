@@ -6,6 +6,7 @@ import { MatDialog,MatDialogConfig } from '@angular/material';
 
 
 
+
 @Component({
   selector: 'app-customer-table',
   templateUrl: './customer-table.component.html',
@@ -16,6 +17,7 @@ import { MatDialog,MatDialogConfig } from '@angular/material';
 export class CustomerTableComponent {
  
   data: any = [];
+  p: number = 1;
   constructor(private dialog:MatDialog, private myService: DataPassService, private dialogEdit:MatDialog) { 
 
     // Getting data from service onLoad
