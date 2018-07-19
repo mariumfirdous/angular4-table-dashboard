@@ -13,13 +13,13 @@
       <th>Total</th>
       <th>Details</th>
     </tr>
-    <tr *ngFor="let i of data| paginate: { itemsPerPage: 4, currentPage: p } | filter:term ; let i = index">
+    <tr *ngFor="let i of data| paginate: { itemsPerPage: 4, currentPage: p } | filter:term ; let a = index">
       <td>{{i.id}}</td>
       <td>{{i.Name}}</td>
       <td>{{i.status}}</td>
       <td>{{i.total | currency}}</td>
-      <td ><button class="btn btn-sm" (click)="openDialog(i)"style="font-size:10px;float:center; background-color: lightcoral;">delete</button>
-      <button class="btn btn-sm" (click)="openEditDialog(i)"style="font-size:10px;float:center; background-color: lightcoral;margin-left:3px">edit </button></td>
+      <td ><button class="btn btn-sm" (click)="openDialog(a)"style="font-size:10px;float:center; background-color: lightcoral;">delete</button>
+      <button class="btn btn-sm" (click)="openEditDialog(a)"style="font-size:10px;float:center; background-color: lightcoral;margin-left:3px">edit </button></td>
   
     </tr>
 
