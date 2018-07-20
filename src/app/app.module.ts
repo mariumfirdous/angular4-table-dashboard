@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 
 import { DataPassService } from './data-pass.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,6 +12,7 @@ import * as PowerCharts from 'fusioncharts/fusioncharts.powercharts';
 import {MatDialogModule} from "@angular/material";
 import {NgxPaginationModule} from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 
 import { AppComponent } from './app.component';
@@ -55,6 +57,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
+    FormsModule
     
 
   ],

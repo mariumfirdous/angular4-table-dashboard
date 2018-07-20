@@ -1,6 +1,8 @@
-import { Component} from '@angular/core';
+import { Component, OnInit,} from '@angular/core';
 import { DataPassService } from './../data-pass.service';
 import { MatDialogRef} from "@angular/material";
+
+
 
 
 
@@ -9,11 +11,22 @@ import { MatDialogRef} from "@angular/material";
   templateUrl: './popup-table.component.html',
   styleUrls: ['./popup-table.component.css']
 })
-export class PopupTableComponent  {
+export class PopupTableComponent implements OnInit {
+  submitted = false;
+  onSubmit() { this.submitted = true; }
 
- 
-
-  constructor(public editDialogRef: MatDialogRef<PopupTableComponent>, private myService: DataPassService){}
+  
+  ngOnInit(){
+    this.i=this.myService.updateIndex;
+    console.log("indexlocked");
+    this.newData= this.myService.data;
+    console.log("datalocked");
+  }
+ i: number ;
+ newData: any;
+  constructor(public editDialogRef: MatDialogRef<PopupTableComponent>, private myService: DataPassService){
+   
+  }
     
 
   update(name: string,status: string,total:string){

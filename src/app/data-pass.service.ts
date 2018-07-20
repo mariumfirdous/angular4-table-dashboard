@@ -13,18 +13,18 @@ export class DataPassService {
    
   }
   
-  // Deleting value on confirm
+
   confirm(){
     this.data.splice(this.deleteIndex, 1);
   }
   
  
-  // Getting index from table and setting in 'deleteIndex'
+ 
   setDeleteIndex(index) {
     this.deleteIndex = index ;
   }
 
-  // returing data from here to table
+  
   getData () {
     return this.data;
   }

@@ -1,29 +1,50 @@
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
-  <table border="2">
+<table border="2">
 <h2 mat-dialog-title style="background-color:darkslategray; color:white">
 Edit
 </h2>
 
 <mat-dialog-content style="margin-left:20px ">
-  <form>
-    
-     Name: <input type='text' #name placeholder="name"/><br/>
-     Status: <input type='text' #status placeholder="status"  /><br/>
-     Total: <input type='text' #total placeholder="total" /><br/>
-  
-     
-  </form>
+<form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+  <div class="form-group">
+   Name: <input type='text' #name="ngModel" class="form-control" value={{newData[i].Name}} pattern="[a-zA-Z][a-zA-Z ]+"
+   [(ngModel)]="newData[i].Name" name="name"
+   #name="ngModel">
+   <div [hidden]="name.valid || name.pristine"
+      class="alert alert-danger"> 
+      <div [hidden]="!name.hasError('pattern')">Only alphabets allowed</div>
+   </div><br/>
+   </div>
+   Status:  
+   <select #status>
+      <option  value="completed">completed</option>
+      <option  value="processed">processed</option>
+      <option  value="order placed">order placed</option>
+      <option  value="out for delivery">out for delivery</option>
+    </select><br/>
+    <div class="form-group">
+   Total: <input name="total" #total="ngModel" class="form-control" value={{newData[i].total}} 
+   [(ngModel)]="newData[i].total" 
+   pattern="[0-9]*"
+   #mobile="ngModel">
+<div [hidden]="total.valid || total.pristine"
+ class="alert alert-danger">
+<div [hidden]="!total.hasError('pattern')">only numbers</div>
+   </div><br/>
+  </div>
+   
+</form>
 </mat-dialog-content>
 
 <mat-dialog-actions>
-  <button class="mat-raised-button btn btn-danger"  (click)="update(name.value,status.value,total.value)">
-    ok
+<button class="mat-raised-button btn btn-danger" [disabled]="!loginForm.form.valid" (click)="update(name.value,status.value,total.value)">
+  ok
 
-  </button>
-  <button class="mat-raised-button btn btn-danger"  (click)="close()">
-    close
-  </button>
+</button>
+<button class="mat-raised-button btn btn-danger"  (click)= "close()">
+  close
+</button>
 </mat-dialog-actions>
-  </table>
+</table>
