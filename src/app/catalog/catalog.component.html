@@ -1,0 +1,108 @@
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+  
+  <app-topnavigation>
+  </app-topnavigation>
+
+  <app-sidemenu>
+  </app-sidemenu>
+
+<div class="container">
+  <div class="btn-group" style="margin-top:20px; padding: 20px">
+    <div>
+      <button type="button" class="btn btn-primary" (click)="groceryTable()">
+        grocery
+      </button>
+      <button type="button" class="btn btn-primary"  (click)="fashionTable()">
+        Fashion
+      </button>
+      <button type="button" class="btn btn-primary"  (click)="electronicsTable()">
+        Electronics
+      </button>
+    </div>
+    <div *ngIf="grocery">
+        <div>
+            <input type="text" style= "margin-top:20px" placeholder="search" (input)="term=$event.target.value">
+          <table class="table-striped table-bordered" >
+            
+            <tr style="background-color: rgb(198, 228, 194)">
+              <th>ID</th>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Total orders</th>
+              <th>Options</th>
+            </tr>
+            <tr *ngFor="let i of jsonGrocery| filter:term ; let a = index">
+              <td>{{i.id}}</td>
+              <td>{{i.name}}</td>
+              <td>{{i.status}}</td>
+              <td>{{i.total }}</td>
+              <td ><button class="btn btn-sm btn-success" style="font-size:10px;float:center;" (click)="delete(a)">delete</button>
+              <button class="btn btn-sm btn-success" style="font-size:10px;float:center; margin-left:3px" (click)="edit(a)">edit </button></td>
+          
+            </tr>
+        
+          </table>
+        </div>
+    </div>
+          
+    <div *ngIf="fashion">
+        <div>
+            <input type="text" style="margin-top:20px" placeholder="search" (input)="term=$event.target.value">
+          <table class="table-striped table-bordered">
+            
+            <tr style="background-color: lightyellow">
+              <th>ID</th>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Total orders</th>
+              <th>Options</th>
+            </tr>
+            <tr *ngFor="let i of jsonFashion| filter:term ; let a = index">
+              <td>{{i.id}}</td>
+              <td>{{i.name}}</td>
+              <td>{{i.status}}</td>
+              <td>{{i.total }}</td>
+              <td ><button class="btn btn-sm" style="font-size:10px;float:center; background-color: orangered;" (click)="delete(a)">delete</button>
+              <button class="btn btn-sm" style="font-size:10px;float:center; background-color: orangered;margin-left:3px" (click)="edit(a)">edit </button></td>
+          
+            </tr>
+        
+          </table>
+        </div>
+    </div>             
+    <div *ngIf="electronics">
+        <div>
+            <input type="text" style="margin-top:20px" placeholder="search" (input)="term=$event.target.value">
+          <table class="table-striped table-bordered">
+            
+            <tr style="background-color: rgb(8, 8, 8)">
+              <th style=" color:white">ID</th>
+              <th style=" color:white">Name</th>
+              <th style=" color:white">Status</th>
+              <th style=" color:white">Total orders</th>
+              <th style=" color:white">Options</th>
+            </tr>
+            <tr *ngFor="let i of jsonElectronics| filter:term ; let a = index">
+              <td>{{i.id}}</td>
+              <td>{{i.name}}</td>
+              <td>{{i.status}}</td>
+              <td>{{i.total }}</td>
+              <td ><button class="btn btn-sm" style="font-size:10px;float:center; background-color:grey" (click)="delete(a)">delete</button>
+              <button class="btn btn-sm" style="font-size:10px;float:center; background-color: grey;margin-left:3px" (click)="edit(a)">edit </button></td>
+          
+            </tr>
+        
+          </table>
+        </div>
+    </div>
+  </div>
+</div>
+

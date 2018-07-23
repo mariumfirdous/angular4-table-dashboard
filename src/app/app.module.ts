@@ -14,7 +14,6 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
-
 import { AppComponent } from './app.component';
 import { TopnavigationComponent } from './topnavigation/topnavigation.component';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
@@ -26,11 +25,35 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { StatsComponent } from './stats/stats.component';
 import { PopupComponent } from './popup/popup.component';
 import { PopupTableComponent } from './popup-table/popup-table.component';
+import { CatalogComponent } from './catalog/catalog.component';
+import { MainContentComponent } from './main-content/main-content.component';
+import { SalesComponent } from './sales/sales.component';
+import { SystemComponent } from './system/system.component';
+import { ReportsComponent } from './reports/reports.component';
+import { HelpComponent } from './help/help.component';
 
 
 const appRoutes: Routes = [
-  { path: '', component: TopnavigationComponent },
-
+{
+  path:'',
+  component: MainContentComponent,
+ 
+},
+{ path: 'catalog',
+   component: CatalogComponent
+},
+{ path: 'sales',
+  component: SalesComponent
+},
+{ path: 'system',
+ component: SystemComponent
+},
+{ path: 'reports',
+component: ReportsComponent
+},
+{ path: 'help',
+component: HelpComponent
+}
 ];
 
 
@@ -45,7 +68,13 @@ const appRoutes: Routes = [
     PieChartComponent,
     StatsComponent,
     PopupComponent,
-    PopupTableComponent
+    PopupTableComponent,
+    CatalogComponent,
+    MainContentComponent,
+    SalesComponent,
+    SystemComponent,
+    ReportsComponent,
+    HelpComponent
     
    
   ],
