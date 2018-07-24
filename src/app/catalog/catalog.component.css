@@ -19,3 +19,7 @@ tr th{
 table{
     margin-top: 20px;
 }
+.success{
+    background-color: rgb(19, 59, 18);
+    color:rgb(253, 253, 253);
+}

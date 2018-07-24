@@ -1,6 +1,50 @@
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
 <app-topnavigation>
-  </app-topnavigation>
-  <app-sidemenu>
+</app-topnavigation>
+<app-sidemenu>
+</app-sidemenu>
+  <div class="body">
+    <div>
+    <input type="text" style="width: 300px"placeholder="search" (input)="term=$event.target.value">
+   
+  </div>
+    <table class="table-striped table-bordered ">
+      
+      <tr style="background-color: rgb(165, 207, 193)">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>City</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Delete</th>
+      </tr>
+      <tr style="padding-left:10px">
+          <td><input [(ngModel)]="newAttribute.id" placeholder=" ID" style="width:80px"/></td>
+          <td><input [(ngModel)]="newAttribute.name" placeholder=" Name" style="width:130px"/></td>
+          <td><input [(ngModel)]="newAttribute.phone" placeholder=" Phone number" style="width:130px"/></td>
+          <td><input [(ngModel)]="newAttribute.city" placeholder=" city" style="width:120px"/></td>
+          <td><input [(ngModel)]="newAttribute.amount" placeholder=" amount in rupees" style="width:130px"/></td>
+          <td><input [(ngModel)]="newAttribute.date" placeholder=" dd-mm-yyyy" style="width:130px"/></td>
+          <td> <button class="btn btn-success" style="margin-left:10px" (click)="add()">Add</button></td>
+      </tr>
+      <tr *ngFor="let i of salesData| paginate: { itemsPerPage: 4, currentPage: p }  | filter:term ; let a = index">
+        <td>{{i.id}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.phone}}</td>
+        <td>{{i.city}}</td>
+        <td>{{i.amount | currency:'&#8377;'}}</td>
+        <td>{{i.date }}</td>
+        <td><button class="btn btn-danger" (click)="delete(a)">remove</button></td>
+      </tr>
   
-  </app-sidemenu>
+    </table>
+    <div style="margin-top:5px ">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+ 
   

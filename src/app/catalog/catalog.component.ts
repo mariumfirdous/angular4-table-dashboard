@@ -12,14 +12,14 @@ import { MatDialog,MatDialogConfig } from '@angular/material';
 export class CatalogComponent implements OnInit {
 
   constructor(private dialog:MatDialog, private myService: DataPassService, private dialogEdit:MatDialog) { 
-    this.data = myService.getData();
-    this.data = myService.getUpdatedData();
+   
 }
-  grocery= false;
+  grocery= true;
   fashion = false;
   electronics= false;
   data: any = [];
-  
+  showEditTable:boolean =false;
+  editRowID: any='';
 
   ngOnInit() {
     
@@ -43,32 +43,20 @@ electronicsTable(){
   this.electronics= true;
   this.data= this.jsonElectronics;
 }
-
-delete(index: number){
-  console.log(index);
-
-  const dialogConfig = new MatDialogConfig();
-  this.dialog.open(PopupComponent, dialogConfig);
-
-
-  // Sending index to service
-  this.myService.setDeleteIndex(index);
-  
+delete (val, json){
+  this.data = json;
+  this.data.splice(val,1);
+  alert(" data deleted");
 }
-
-edit(index: number){
-  console.log(index);
-
-  const editDialogConfig = new MatDialogConfig();
-  this.dialogEdit.open(PopupTableComponent, editDialogConfig);
-
-
-  // Sending index to service
-  this.myService.setupdatedIndex(index);
+edit(val,json)
+{
+  this.editRowID = val;
+  this.data = json;
 }
+save(){
+ this.editRowID = -1;
 
-
-
+}
 jsonGrocery = [
   {"id":"123",
     "name":"Salt",

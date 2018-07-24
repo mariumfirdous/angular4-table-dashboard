@@ -11,7 +11,7 @@ Edit
   <div class="form-group">
    Name: <input type='text' #name="ngModel" class="form-control" value={{newData[i].Name}} pattern="[a-zA-Z][a-zA-Z ]+"
    [(ngModel)]="newData[i].Name" name="name"
-   #name="ngModel">
+   >
    <div [hidden]="name.valid || name.pristine"
       class="alert alert-danger"> 
       <div [hidden]="!name.hasError('pattern')">Only alphabets allowed</div>
