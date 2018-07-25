@@ -1,6 +1,43 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
 <app-topnavigation>
-  </app-topnavigation>
-  <app-sidemenu>
+</app-topnavigation>
   
-  </app-sidemenu>
-  
+<app-sidemenu>
+</app-sidemenu>
+<div class="body">
+<div style="margin-left: 500px">
+  <button class="btn btn-primary" style=" background-color: rgb(231, 144, 144);border:grey" (click)="insert()">Insert</button>
+  <button class="btn btn-primary" style="margin-left: 10px; background-color:  rgb(231, 144, 144); border:grey" (click)="delete()">remove</button>
+</div>
+<div>
+    <table class="table-striped table-bordered ">
+      
+        <tr style="background-color: rgb(165, 207, 193)">
+          <th><input type="checkbox" [(ngModel)]="selectedAll" (change)="selectAll(this);" /></th>
+          <th>Banner Name</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+        <tr *ngIf="showBox" style="padding-left:10px">
+          <td>
+            <td><input [(ngModel)]="newAttribute.name" placeholder="Name" style="width:150px"/></td>
+            <td><select [(ngModel)]="newAttribute.status">
+                <option  value="enabled">Enabled</option>
+                <option  value="disabled">Disabled</option>                
+              </select>
+            </td>
+            <td> <button class="btn btn-success" style="margin-left:10px" (click)="add()">Add</button></td>
+        </tr>
+        <tr *ngFor="let i of sysData|  filter:term ; let a = index">
+          <td><input type="checkbox"  [(ngModel)]="i.selected" (change)="checkIfAllSelected()" (click)="checkedBox(a)" /></td>
+          <td>{{i.name}}</td>
+          <td>{{i.status}}</td>
+          <td><button class="btn btn-primary" (click)="edit()">Edit</button></td>
+        </tr>
+    
+      </table>
+</div>
+</div>

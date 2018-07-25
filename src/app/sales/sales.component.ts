@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class SalesComponent implements OnInit {
   p:number=1;
   constructor() { }
- newVar :any;
+ 
   ngOnInit() {
   }
   private newAttribute: any = {};
