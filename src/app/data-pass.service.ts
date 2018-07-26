@@ -9,11 +9,12 @@ export class DataPassService {
   
   public deleteIndex = -1;
   public updateIndex= -1;
+  sales = false;
+  return = false;
+  shipping = false;
   constructor() { 
    
   }
-  
-
   confirm(){
     this.data.splice(this.deleteIndex, 1);
   }
@@ -44,7 +45,26 @@ export class DataPassService {
 
   getUpdatedData(){
     return this.data;
-   
+  }
+
+  salesReport(){
+    false
+    this.sales = true;
+    this.shipping = false;
+    this.return = false;
+  }
+
+  shippingReport(){
+    this.shipping = true;
+    this.sales = false;
+    this.return = false
+  }
+
+  returnReport(){
+    this.return = true;
+    this.sales = false;
+    this.shipping = false;
+
   }
 
   data = [

@@ -5,12 +5,17 @@
     <p style="font-size:15px;font-weight:100">Administration</p>
   </span>
   
-  <a href="#" >Dashboard</a>
-  <a routerLink="/catalog">Catalog</a>
-  <a routerLink="/sales">Sales</a>
-  <a routerLink="/system">System</a>
-  <a routerLink="/reports">Reports</a>
-  <a routerLink="/help">Help</a>
+  <a  style="font-size: 20px" href="#" >Dashboard</a>
+  <a  style="font-size: 20px" routerLink="/catalog">Catalog</a>
+  <a style="font-size: 20px"  routerLink="/sales">Sales</a>
+  <a  style="font-size: 20px" routerLink="/system">System</a>
+  <a  style="font-size: 20px" (click)="reportsDropdown()" id="report">Reports</a>
+  <div *ngIf="dropdown"  >
+    <a class ="dropdown" style="margin-left: 10px" (click)="openSalesReports()" routerLink="/reports">Sales Report</a>
+    <a class ="dropdown" style="margin-left: 10px" (click)="openShippingReports()" routerLink="/reports">Shipping Report</a>
+    <a class ="dropdown" style="margin-left: 10px" (click)="openReturnsReports()" routerLink="/reports">Returns Report</a> 
+  </div >
+  <a style="font-size: 20px" routerLink="/help">Help</a>
 </div>
 
 

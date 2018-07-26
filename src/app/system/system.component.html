@@ -16,26 +16,26 @@
     <table class="table-striped table-bordered ">
       
         <tr style="background-color: rgb(165, 207, 193)">
-          <th><input type="checkbox" [(ngModel)]="selectedAll" (change)="selectAll(this);" /></th>
+          <th><input type="checkbox" [(ngModel)]="selectedAll" (change)="selectAll(this);" (click)="checkAll()"/></th>
           <th>Banner Name</th>
           <th>Status</th>
-          <th>Action</th>
+          
         </tr>
         <tr *ngIf="showBox" style="padding-left:10px">
-          <td>
+          <td> <button class="btn btn-success" style="margin-left:10px" (click)="add()">Add</button></td>
             <td><input [(ngModel)]="newAttribute.name" placeholder="Name" style="width:150px"/></td>
             <td><select [(ngModel)]="newAttribute.status">
                 <option  value="enabled">Enabled</option>
                 <option  value="disabled">Disabled</option>                
               </select>
             </td>
-            <td> <button class="btn btn-success" style="margin-left:10px" (click)="add()">Add</button></td>
+            
         </tr>
         <tr *ngFor="let i of sysData|  filter:term ; let a = index">
           <td><input type="checkbox"  [(ngModel)]="i.selected" (change)="checkIfAllSelected()" (click)="checkedBox(a)" /></td>
           <td>{{i.name}}</td>
           <td>{{i.status}}</td>
-          <td><button class="btn btn-primary" (click)="edit()">Edit</button></td>
+          
         </tr>
     
       </table>

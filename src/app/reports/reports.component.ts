@@ -1,4 +1,7 @@
+import { DataPassService } from './../data-pass.service';
 import { Component, OnInit } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-reports',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private myService: DataPassService) { }
 
   ngOnInit() {
+    
   }
-
+ sales = this.myService.sales;
+ return = this.myService.return;
+ shipping = this.myService.shipping;
 }

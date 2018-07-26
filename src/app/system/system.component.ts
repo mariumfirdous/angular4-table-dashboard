@@ -17,6 +17,7 @@ export class SystemComponent implements OnInit {
   newData =[];
   index:number;
   random:boolean = false;
+  indexNewVar:number;
   ngOnInit() {
     
   }
@@ -28,8 +29,7 @@ export class SystemComponent implements OnInit {
       if (i==this.newVar[j]){
         console.log("check i with newVar");
         this.random = true;
-        console.log("random value ");
-               
+        console.log("random value");              
      }
      console.log("out of if loop");
      
@@ -45,14 +45,32 @@ export class SystemComponent implements OnInit {
    this.sysData = this.newData;
    console.log(JSON.stringify(this.sysData));
   }
+  checkedBox(a: number){
+    console.log(a);
+    this.index=a;
+    for( var i=0;i<this.newVar.length;i++){
+      if(this.index==this.newVar[i]){
+        this.random = true;
+        this.indexNewVar = i;
+
+      }
+  
+    }
+    if(this.random!== true){
+     this.newVar.push(this.index);
+    }else{
+      this.newVar.splice(this.indexNewVar,1);
+    }
+    this.random = false; 
+    console.log(this.newVar);
+   return this.newVar;
+  }
  
- checkedBox(a: number){
-   console.log(a);
-   this.index=a;
-  this.newVar.push(this.index);
-  console.log(this.newVar);
-  return this.newVar;
- }
+  checkAll(){
+    for(var i=0;i<this.sysData.length;i++){
+      this.checkedBox(i);
+    }
+  }
  setIndex(a:number){
    this.index = a;
    return this.index;
@@ -75,9 +93,11 @@ checkIfAllSelected() {
       item.selected == true;
       console.log(item.selected);
       return item.selected == true;
-    })
-
+ })
+ 
 }
+
+
 
   
   

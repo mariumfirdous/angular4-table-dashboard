@@ -1,7 +1,7 @@
-import { CatalogComponent } from './../catalog/catalog.component';
+import { DataPassService } from './../data-pass.service';
+
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { RouterInitializer } from '@angular/router/src/router_module';
+
 
 @Component({
   selector: 'app-sidemenu',
@@ -9,11 +9,23 @@ import { RouterInitializer } from '@angular/router/src/router_module';
   styleUrls: ['./sidemenu.component.css']
 })
 export class SidemenuComponent {
-constructor(){
+constructor(private myService: DataPassService){
   
 }
- 
+dropdown:boolean = false;
 
+ reportsDropdown(){
+   this.dropdown = !this.dropdown;
+ }
+ openSalesReports(){
+   this.myService.salesReport();
+ }
+ openShippingReports(){
+  this.myService.shippingReport();
+ }
+ openReturnsReports(){
+  this.myService.returnReport();
+ }
 }
 
 
