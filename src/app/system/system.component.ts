@@ -14,19 +14,36 @@ export class SystemComponent implements OnInit {
   showBox:boolean = false;
   SelectedIDs:any[];
   newVar =[];
-   index:number;
-
+  newData =[];
+  index:number;
+  random:boolean = false;
   ngOnInit() {
     
   }
   delete(){
-   for ( var i=0;i<this.newVar.length;i++){
-     
-     this.sysData.splice(this.newVar[i],1);
-     
-console.log(i)
+   for ( var i=0;i<this.sysData.length;i++){
+    console.log("i loop");
+    for (var j=0;j<this.newVar.length;j++){
+      console.log("j loop");
+      if (i==this.newVar[j]){
+        console.log("check i with newVar");
+        this.random = true;
+        console.log("random value ");
+        break;        
+     }
+     console.log("out of if loop");
+     break;
+    }
+    if(this.random !== true){
+      console.log(this.random);
+      console.log("random value above");
+      this.newData.push(this.sysData[i]);
+     }
+     this.random= false;   
    }
-   this.newVar=[];
+   console.log(JSON.stringify(this.sysData));
+   this.sysData = this.newData;
+   console.log(JSON.stringify(this.newData));
   }
  
  checkedBox(a: number){
