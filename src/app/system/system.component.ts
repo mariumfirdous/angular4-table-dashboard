@@ -29,10 +29,10 @@ export class SystemComponent implements OnInit {
         console.log("check i with newVar");
         this.random = true;
         console.log("random value ");
-        break;        
+               
      }
      console.log("out of if loop");
-     break;
+     
     }
     if(this.random !== true){
       console.log(this.random);
@@ -41,9 +41,9 @@ export class SystemComponent implements OnInit {
      }
      this.random= false;   
    }
-   console.log(JSON.stringify(this.sysData));
-   this.sysData = this.newData;
    console.log(JSON.stringify(this.newData));
+   this.sysData = this.newData;
+   console.log(JSON.stringify(this.sysData));
   }
  
  checkedBox(a: number){
