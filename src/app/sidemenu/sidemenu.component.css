@@ -43,6 +43,7 @@
     background-color: rgb(70, 104, 104);
     font-size:15px;
     margin-right: 10px;
+    cursor: pointer;
 }
 #report{
     cursor: pointer;

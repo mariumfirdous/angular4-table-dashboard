@@ -48,23 +48,35 @@ export class DataPassService {
   }
 
   salesReport(){
-    false
+    
     this.sales = true;
     this.shipping = false;
     this.return = false;
+    console.log(0);
   }
 
   shippingReport(){
     this.shipping = true;
     this.sales = false;
-    this.return = false
+    this.return = false;
+    console.log(1);
   }
 
   returnReport(){
     this.return = true;
     this.sales = false;
     this.shipping = false;
-
+    console.log(2);
+  
+  }
+  setReturn(){
+    return this.return;
+  }
+  setSales(){
+    return this.return;
+  }
+  setShipping(){
+    return this.return;
   }
 
   data = [

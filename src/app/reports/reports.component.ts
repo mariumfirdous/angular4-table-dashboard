@@ -9,13 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reports.component.css']
 })
 export class ReportsComponent implements OnInit {
-
-  constructor(private myService: DataPassService) { }
+sales : boolean;
+shipping : boolean;
+return : boolean;
+  constructor(private myService: DataPassService) { 
+   
+  }
 
   ngOnInit() {
-    
+    this.sales=this.myService.sales;
+    this.shipping=this.myService.shipping;
+    this.return=this.myService.return;
+    console.log(this.return,this.sales,this.shipping);
   }
- sales = this.myService.sales;
- return = this.myService.return;
- shipping = this.myService.shipping;
+
 }
