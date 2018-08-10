@@ -52,7 +52,6 @@ export class SystemComponent implements OnInit {
       if(this.index==this.newVar[i]){
         this.random = true;
         this.indexNewVar = i;
-
       }
   
     }
@@ -96,10 +95,7 @@ checkIfAllSelected() {
  })
  
 }
-
-
-
-  
+ 
   
 sysData =[
   {

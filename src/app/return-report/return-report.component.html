@@ -1,0 +1,46 @@
+<app-topnavigation>
+</app-topnavigation>
+<app-sidemenu>
+
+</app-sidemenu>
+
+
+<div *ngIf= "return" style="margin:100px 0px 0px 300px">  
+  <div style="padding:20px">
+  <select #order >
+  <option  value="DailyTab">Daily</option>
+  <option value="monthTab">Monthly</option>
+  <option  value="yearTab">Yearly</option>
+</select>
+<button (click)="sortedTable(order.value)">sort</button>
+</div>
+<table>
+  <div *ngIf="defaultTable">
+    <table class="table-striped table-bordered">
+      
+    <tr>
+      <th>Date</th>
+      <th>Total</th>
+    </tr>
+    <tr *ngFor="let i of returnData">
+      <td>{{i.year}}</td>
+      <td>{{i.total}}</td>
+    </tr>
+   
+    </table>
+</div>
+<table>
+<div *ngIf="yearTable">
+  <table class="table-striped table-bordered">
+    
+  <tr>
+    <th>Date</th>
+    <th>Total</th>
+  </tr>
+  <tr *ngFor="let i of returnData">
+    <td>{{i.year}}</td>
+    <td>{{i.total}}</td>
+  </tr>
+ 
+  </table>
+</div>

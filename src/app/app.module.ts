@@ -1,3 +1,5 @@
+
+import { OrderDatePipe } from './order-date.pipe';
 import { FormsModule } from '@angular/forms';
 
 import { DataPassService } from './data-pass.service';
@@ -12,7 +14,6 @@ import * as PowerCharts from 'fusioncharts/fusioncharts.powercharts';
 import {MatDialogModule} from "@angular/material";
 import {NgxPaginationModule} from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
 
 import { AppComponent } from './app.component';
 import { TopnavigationComponent } from './topnavigation/topnavigation.component';
@@ -29,8 +30,11 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { SalesComponent } from './sales/sales.component';
 import { SystemComponent } from './system/system.component';
-import { ReportsComponent } from './reports/reports.component';
 import { HelpComponent } from './help/help.component';
+import { ShippingReportComponent } from './shipping-report/shipping-report.component';
+import { ReturnReportComponent } from './return-report/return-report.component';
+import { SalesReportComponent } from './sales-report/sales-report.component';
+
 
 
 const appRoutes: Routes = [
@@ -48,11 +52,17 @@ const appRoutes: Routes = [
 { path: 'system',
  component: SystemComponent
 },
-{ path: 'reports',
-component: ReportsComponent
+{ path: 'return',
+component: ReturnReportComponent
 },
 { path: 'help',
 component: HelpComponent
+},
+{ path: 'sales-report',
+component: SalesReportComponent
+},
+{ path: 'shipping',
+component: ShippingReportComponent
 }
 ];
 
@@ -73,8 +83,11 @@ component: HelpComponent
     MainContentComponent,
     SalesComponent,
     SystemComponent,
-    ReportsComponent,
-    HelpComponent
+    HelpComponent,
+    ShippingReportComponent,
+    ReturnReportComponent,
+    SalesReportComponent,
+    OrderDatePipe
     
    
   ],

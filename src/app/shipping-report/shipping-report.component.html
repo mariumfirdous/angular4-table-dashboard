@@ -1,0 +1,30 @@
+<app-topnavigation>
+</app-topnavigation>
+<app-sidemenu>
+
+</app-sidemenu>
+
+
+
+<div *ngIf= "shipping" style="margin:100px 0px 0px 300px">  <table class="table-striped table-bordered">
+    
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Status</th>
+    <th>Total</th>
+    <th>Details</th>
+  </tr>
+  <tr *ngFor="let i of data| paginate: { itemsPerPage: 4, currentPage: p } | filter:term ; let a = index">
+    <td>{{i.id}}</td>
+    <td>{{i.Name}}</td>
+    <td>{{i.status}}</td>
+    <td>{{i.total | currency}}</td>
+    <td ><button class="btn btn-sm" (click)="openDialog(a)"style="font-size:10px;float:center; background-color: lightcoral;">delete</button>
+    <button class="btn btn-sm" (click)="openEditDialog(a)"style="font-size:10px;float:center; background-color: lightcoral;margin-left:3px">edit </button></td>
+
+  </tr>
+
+</table>
+</div>
+ 

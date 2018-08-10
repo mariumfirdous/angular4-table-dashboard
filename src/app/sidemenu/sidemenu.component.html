@@ -11,16 +11,10 @@
   <a  style="font-size: 20px" routerLink="/system">System</a>
   <a  style="font-size: 20px" (click)="reportsDropdown()" id="report">Reports</a>
   <div *ngIf="dropdown"  >
-    <div *ngIf="report">
-    <a class ="dropdown" style="margin-left: 10px" (click)="openSalesReports()" routerLink="/reports">Sales Report</a>
-    <a class ="dropdown" style="margin-left: 10px" (click)="openShippingReports()" routerLink="/reports">Shipping Report</a>
-   <a class ="dropdown" style="margin-left: 10px" (click)="openReturnsReports()" routerLink="/reports">Returns Report</a> 
-</div>
-  <div *ngIf="router">
-      <a class ="dropdown" style="margin-left: 10px" (click)="openSales()" >Sales Report</a>
-      <a class ="dropdown" style="margin-left: 10px" (click)="openShipping()" >Shipping Report</a>
-      <a class ="dropdown" style="margin-left: 10px" (click)="openReturns()" >Returns Report</a> 
-    </div >
+    
+    <a class ="dropdown" style="margin-left: 10px" (click)="openSalesReports()" routerLink="/sales-report">Sales Report</a>
+    <a class ="dropdown" style="margin-left: 10px" (click)="openShippingReports()" routerLink="/shipping">Shipping Report</a>
+   <a class ="dropdown" style="margin-left: 10px" (click)="openReturnsReports()" routerLink="/return">Returns Report</a> 
 </div>
 
   <a style="font-size: 20px" routerLink="/help">Help</a>
