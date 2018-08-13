@@ -13,11 +13,8 @@ export class ReturnReportComponent implements OnInit {
   return : boolean;
   yearTable : boolean = false;
   defaultTable : boolean = true;
-  sortedData :  any=[{
-   "year":"",
-   "total":""
-  }];
-  random : boolean;
+  sortedData :  any=[];
+  random : number;
   constructor(private myService: DataPassService) { 
 
   }
@@ -26,68 +23,51 @@ export class ReturnReportComponent implements OnInit {
     this.shipping=this.myService.shipping;
     this.return=this.myService.return;
   }
-  sortedTable(value: any){
+  sortedTable(value: string){
     this.yearTable = true;
     console.log("sorted");
     this.defaultTable = false;
     console.log(this.yearTable);
     this.sort(value);
   }
-
-  sort(param: any){
+  sort(value: string){
     console.log("sort");
-    console.log(param);
-    if(param === "yearTab" ){
-      for( var x=0;x<=this.returnData.length;x++){
-
-      console.log("check year value");
-
-      for( var i=0;i<=this.returnData.length;i++){
-
-        console.log("i loop");
+    if( value === 'yearTab'){
+      console.log("first if");
+      
+      console.log(JSON.stringify(this.sortedData));
+      
+      for (var  i=0; i<this.returnData.length; i++){
+        this.random=0;
+        this.checkSortedData(this.returnData[i].year);
+        console.log(this.random);
         console.log(this.returnData[i].year);
-        for (var z=0;z<=this.returnData.length;z++){
-          while(this.sortedData.length==0){
-            this.sortedData.push(this.returnData[0]);
-          }
-          if(this.returnData[i].year==this.sortedData[z].year){
-            this.random = true;
-
-            console.log("checking sortedData");
-          }
-        }
-        if(this.random== false){
+        if(this.random == -1){
           this.sortedData.push(this.returnData[i]);
-
-          console.log("adding row in sortedData");
-
+          console.log(this.sortedData[i].total);
         }
-        for(var j=i+1;j<=this.returnData.length;j++){
-
-          console.log("j loop");
-          
-          if(this.returnData[i].year===this.returnData[j].year){
-            
-            console.log("first if");
-
-            this.random = true;
-            this.sortedData[x].total=this.returnData[i].total+this.returnData[j].total;   
-                    
-            console.log("increment");    
-
-            console.log(this.random);
-            this.sortedData.push(this.returnData[i].total);         
-          }             
-          
-          }        
-          console.log(JSON.stringify(this.returnData));   
-        return this.returnData;
-        
-      } 
-              
-    }
+        else {         
+          this.sortedData[this.random].total= this.sortedData[this.random].total + this.returnData[i].total; 
+        }
+      }
     }
   }
+checkSortedData(num: number){
+  for( var i=0; i<this.sortedData.length ; i++){
+   console.log(num);
+    if( this.sortedData[i].year == num){
+      this.random = i;
+      console.log("number");
+      console.log(num );
+      return this.random;
+    }  
+  }
+  
+    this.random = -1;
+    return this.random;
+  
+}
+
 
 returnData = [
   { "date":25,
@@ -124,6 +104,12 @@ returnData = [
     "month": 8,
     "year": 2017,
     "total":4
+  },
+  {
+    "date":30,
+    "month": 8,
+    "year": 2018,
+    "total":2
   }
 ]
 
