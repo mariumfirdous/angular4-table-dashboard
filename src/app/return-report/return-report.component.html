@@ -23,7 +23,7 @@
       <th>Total</th>
     </tr>
     <tr *ngFor="let i of returnData">
-      <td>{{i.year}}</td>
+      <td>{{i.date}}/{{i.month}}/{{i.year}}</td>
       <td>{{i.total}}</td>
     </tr>
    
@@ -39,6 +39,20 @@
   </tr>
   <tr *ngFor="let i of sortedData">
     <td>{{i.year}}</td>
+    <td>{{i.total}}</td>
+  </tr>
+ 
+  </table>
+</div>
+<div *ngIf="monthTable">
+  <table class="table-striped table-bordered">
+    
+  <tr>
+    <th>Date</th>
+    <th>Total</th>
+  </tr>
+  <tr *ngFor="let i of sortedData">
+    <td>{{i.Month}}</td>
     <td>{{i.total}}</td>
   </tr>
  
