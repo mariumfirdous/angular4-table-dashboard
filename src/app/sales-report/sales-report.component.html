@@ -3,17 +3,12 @@
 <app-sidemenu>
 
 </app-sidemenu>
-
-
-
 <div *ngIf= "sales" style="margin:100px 0px 0px 300px">  <table class="table-striped table-bordered">
     
   <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Status</th>
-    <th>Total</th>
-    <th>Details</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
   <tr *ngFor="let i of data| paginate: { itemsPerPage: 4, currentPage: p } | filter:term ; let a = index">
     <td>{{i.id}}</td>

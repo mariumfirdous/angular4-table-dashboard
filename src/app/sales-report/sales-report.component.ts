@@ -10,16 +10,13 @@ export class SalesReportComponent implements OnInit {
 sales : boolean;
 shipping : boolean;
 return : boolean;
-  constructor(private myService: DataPassService) { 
+  constructor() { 
    
 
   }
 
   ngOnInit() {
-    this.sales=this.myService.sales;
-    this.shipping=this.myService.shipping;
-    this.return=this.myService.return;
-    console.log(this.return,this.sales,this.shipping);
+
   }
 
 }

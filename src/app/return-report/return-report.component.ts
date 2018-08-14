@@ -16,6 +16,9 @@ export class ReturnReportComponent implements OnInit {
   sortedData :  any=[];
   random : number;
   monthTable : boolean = false;
+  yearlyMonth :boolean = true;
+  data : any=[];
+  
   constructor(private myService: DataPassService) { 
 
   }
@@ -36,6 +39,8 @@ export class ReturnReportComponent implements OnInit {
     if( value === 'yearTab'){
       console.log("first if");
       this.yearTable = true;
+      this.monthTable = false;
+      this.defaultTable = false;
       console.log(JSON.stringify(this.sortedData));
       
       for (var  i=0; i<this.returnData.length; i++){
@@ -57,6 +62,8 @@ export class ReturnReportComponent implements OnInit {
     if( value === 'monthTab'){
       console.log("first if");
       this.monthTable = true;
+      this.defaultTable= false;
+      this.yearTable = false;
       console.log(JSON.stringify(this.sortedData));
       
       for (var  i=0; i<this.returnData.length; i++){
@@ -74,6 +81,12 @@ export class ReturnReportComponent implements OnInit {
         }
       }
       return this.sortedData;
+    }
+    if( value === 'dailyTab'){
+      console.log("first if");
+      this.monthTable = false;
+      this.defaultTable= true;
+      this.yearTable = false;
     }
   }
 checkSortedData(num: number){
@@ -108,7 +121,10 @@ checkSortedDataMonth(num: number){
   
 }
 
-
+sortYearly(a){
+  this.yearlyMonth = true;
+  
+}
 
 returnData = [
   { "date":25,

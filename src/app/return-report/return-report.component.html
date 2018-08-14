@@ -5,10 +5,10 @@
 </app-sidemenu>
 
 
-<div *ngIf= "return" style="margin:100px 0px 0px 300px">  
+<div *ngIf= "return" style="margin:100px 0px 0px 300px" >  
   <div style="padding:20px">
   <select #order >
-  <option  value="DailyTab">Daily</option>
+  <option  value="dailyTab">Daily</option>
   <option value="monthTab">Monthly</option>
   <option  value="yearTab">Yearly</option>
 </select>
@@ -37,7 +37,7 @@
     <th>Date</th>
     <th>Total</th>
   </tr>
-  <tr *ngFor="let i of sortedData">
+  <tr *ngFor="let i of sortedData; let a = index">
     <td>{{i.year}}</td>
     <td>{{i.total}}</td>
   </tr>
@@ -53,7 +53,7 @@
   </tr>
   <tr *ngFor="let i of sortedData">
     <td>{{i.Month}}</td>
-    <td>{{i.total}}</td>
+    <td>{{i.total}}<button (click)=sortYearly(a)>yearly</button></td>
   </tr>
  
   </table>
