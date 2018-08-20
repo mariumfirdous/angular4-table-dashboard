@@ -16,11 +16,12 @@ export class ReturnReportComponent implements OnInit {
   sortedData :  any=[];
   random : number;
   monthTable : boolean = false;
-  yearlyMonth :boolean = true;
+  yearlyMonth :boolean = false;
   data : any=[];
   
+  
   constructor(private myService: DataPassService) { 
-
+   
   }
   ngOnInit() {
     this.sales=this.myService.sales;
@@ -61,25 +62,33 @@ export class ReturnReportComponent implements OnInit {
     }
     if( value === 'monthTab'){
       console.log("first if");
+      this.sortedData =[];
       this.monthTable = true;
       this.defaultTable= false;
       this.yearTable = false;
+      console.log(JSON.stringify(this.returnData[0]));
       console.log(JSON.stringify(this.sortedData));
       
       for (var  i=0; i<this.returnData.length; i++){
         this.random=0;
+        console.log(JSON.stringify(this.returnData[0]));
         this.checkSortedDataMonth(this.returnData[i].month);
-        console.log(this.random);
-        console.log(this.returnData[i].month);
+        console.log(JSON.stringify(this.returnData[0]));
+        
+        
         if(this.random == -1){
+          console.log(JSON.stringify(this.returnData[0]));
           this.sortedData.push(this.returnData[i]);
          
         }
-        else {         
-          this.sortedData[this.random].total= this.sortedData[this.random].total + this.returnData[i].total; 
-          
+        
+        else {   
+          console.log(JSON.stringify(this.returnData[0]));      
+          this.sortedData[this.random].total=  this.returnData[i].total + this.sortedData[this.random].total; 
+          console.log(JSON.stringify(this.returnData[0])); 
         }
       }
+      console.log(JSON.stringify(this.returnData));
       return this.sortedData;
     }
     if( value === 'dailyTab'){
@@ -118,12 +127,22 @@ checkSortedDataMonth(num: number){
   }
   this.random = -1;
     return this.random;
-  
 }
 
-sortYearly(a){
+sortYearly(randomMonth: string){
+  this.data = [];
   this.yearlyMonth = true;
-  
+  console.log(randomMonth);
+  this.findMonthTable(randomMonth);
+}
+findMonthTable(value: string){
+  for(var i=0;i<this.returnData.length;i++){
+    if( this.returnData[i].Month===value ){
+      this.data.push(this.returnData[i]);
+      console.log(this.returnData[i]);
+    }
+  }
+  return this.data;                                                                           
 }
 
 returnData = [
@@ -135,8 +154,8 @@ returnData = [
   },
   {
     "date":18,
-    "month": 10,
-    "Month": "October",
+    "month": 4,
+    "Month": "April",
     "year": 2017,
     "total": 3
   },

@@ -53,8 +53,23 @@
   </tr>
   <tr *ngFor="let i of sortedData">
     <td>{{i.Month}}</td>
-    <td>{{i.total}}<button (click)=sortYearly(a)>yearly</button></td>
+    <td>{{i.total}}<button (click)="sortYearly(i.Month)">yearly</button></td>
   </tr>
  
   </table>
 </div>
+<div *ngIf="yearlyMonth">
+  <table class="table-striped table-bordered">
+   
+  <tr>
+    <th>Date</th>
+    <th>Total</th>
+  </tr>
+  <tr *ngFor="let i of data">
+    <td>{{i.month}} / {{i.year}}</td>
+    <td>{{i.total}}</td>
+  </tr>
+ 
+  </table>
+</div>
+
