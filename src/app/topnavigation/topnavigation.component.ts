@@ -1,4 +1,6 @@
+import { DataPassService } from './../data-pass.service';
 import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-topnavigation',
@@ -7,6 +9,8 @@ import { Component } from '@angular/core';
 })
 export class TopnavigationComponent {
 
-  constructor() { }
-
+  constructor(private myService: DataPassService) { }
+logout(){
+  this.myService.logout();
+}
 }

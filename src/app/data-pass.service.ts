@@ -12,6 +12,8 @@ export class DataPassService {
   sales = false;
   return = false;
   shipping = false;
+  logoutValue :boolean = false;
+  loginValue: boolean;
   constructor() { 
    
   }
@@ -78,6 +80,14 @@ export class DataPassService {
   setShipping(){
     return this.return;
   }
+
+  logout(){
+    
+     this.logoutValue= true;
+     this.loginValue = false;
+     console.log("loginValue");
+  }
+
 
   data = [
     {"id":"123",
