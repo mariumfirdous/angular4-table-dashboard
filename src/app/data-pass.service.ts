@@ -12,8 +12,8 @@ export class DataPassService {
   sales = false;
   return = false;
   shipping = false;
-  logoutValue :boolean = false;
-  loginValue: boolean;
+  logoutValue :boolean ;
+  loginValue: boolean ;
   constructor() { 
    
   }

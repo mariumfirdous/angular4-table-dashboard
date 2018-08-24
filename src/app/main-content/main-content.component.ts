@@ -11,8 +11,8 @@ export class MainContentComponent implements OnInit {
   logoutValue: boolean = false;
   loginValue:boolean = true;
   constructor(myService: DataPassService) { 
-    /*this.logoutValue =myService.logoutValue;
-    this.loginValue = myService.loginValue;*/
+    this.logoutValue =myService.logoutValue;
+    this.loginValue = myService.loginValue;
     console.log(this.loginValue);
   }
 
